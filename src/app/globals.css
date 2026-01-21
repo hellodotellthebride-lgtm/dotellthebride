@@ -869,6 +869,27 @@ section {
   .focus-form button {
     width: 100%;
   }
+
+  .hero {
+    overflow: visible !important;
+    padding-bottom: 5rem;
+  }
+
+  .hero__strip {
+    gap: 0.75rem;
+    padding: 0 0.5rem;
+  }
+
+  .hero__strip-frame {
+    flex: 0 0 65%;
+    max-width: 240px;
+  }
+
+  .hero__strip-img,
+  .phone-strip__row .hero__strip-img {
+    height: 340px;
+    margin-bottom: -150px;
+  }
 }
 
 .social-links a {
