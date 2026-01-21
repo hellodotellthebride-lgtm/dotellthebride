@@ -202,7 +202,7 @@ export default function HomePage() {
           ))}
         </div>
         <div className="center">
-          <Link href="/blog" className="ghost-button">
+          <Link href="/journal" className="ghost-button">
             Visit the journal
           </Link>
         </div>

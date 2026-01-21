@@ -8,7 +8,7 @@ const navItems = [
   { label: 'App', href: '/#experience' },
   { label: 'Features', href: '/#services' },
   { label: 'Inside the app', href: '/#inside' },
-  { label: 'Journal', href: '/blog' },
+  { label: 'Journal', href: '/journal' },
   { label: 'Early Access', href: '/early-access' }
 ];
 
@@ -38,7 +38,7 @@ export default function Header() {
               ))}
             </nav>
             <div className="header-cta">
-              <Link href="/blog" className="ghost-button">
+              <Link href="/journal" className="ghost-button">
                 Journal
               </Link>
               <Link href="/#contact" className="primary-button">

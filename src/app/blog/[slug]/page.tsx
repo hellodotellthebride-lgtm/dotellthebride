@@ -53,7 +53,7 @@ export default function PostPage({ params }: PostPageProps) {
 
   return (
     <article className="post">
-      <Link href="/blog" className="text-button">
+      <Link href="/journal" className="text-button">
         ← Back to all articles
       </Link>
       <p className="eyebrow">{new Date(safePost.date).toLocaleDateString()}</p>
