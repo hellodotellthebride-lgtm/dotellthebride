@@ -890,6 +890,12 @@ section {
     height: 360px;
     margin-bottom: -80px;
   }
+
+  .hero--gradient {
+    padding: 2.5rem 1.5rem 4rem;
+    box-shadow: none;
+    background: linear-gradient(135deg, #ffe5d2, #ffe5d2);
+  }
 }
 
 .social-links a {
