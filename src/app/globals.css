@@ -881,14 +881,14 @@ section {
   }
 
   .hero__strip-frame {
-    flex: 0 0 65%;
-    max-width: 240px;
+    flex: 0 0 80%;
+    max-width: 280px;
   }
 
   .hero__strip-img,
   .phone-strip__row .hero__strip-img {
-    height: 340px;
-    margin-bottom: -150px;
+    height: 360px;
+    margin-bottom: -80px;
   }
 }
 
