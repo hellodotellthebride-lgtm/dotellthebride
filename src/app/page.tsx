@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 import Image from 'next/image';
 import PhonePreviewRow from '@/components/PhonePreviewRow';
-import BrevoForm from '@/components/BrevoForm';
+import BrevoForm, { QuickJoinForm } from '@/components/BrevoForm';
 import heroStripOne from '@/assets/App mockup-4.png';
 import heroStripTwo from '@/assets/App mockup-11.png';
 import heroStripThree from '@/assets/App mockup-8.png';
@@ -20,21 +20,21 @@ const workflowStories = [
     copy: 'Set your budget with clarity, track it in real time, and understand the impact of every decision before it becomes stressful.',
     image: approvalsMock,
     ctaLabel: 'Read more',
-    ctaHref: '/#more-features'
+    ctaHref: '/features/budget-buddy'
   },
   {
     title: 'Ask Ivy',
     copy: 'Get thoughtful, practical answers to planning questions, tailored to where you are in your wedding journey.',
     image: journalMock,
     ctaLabel: 'Read more',
-    ctaHref: '/#more-features'
+    ctaHref: '/features/ask-ivy'
   },
   {
     title: 'Inspiration Station',
     copy: 'Browse curated wedding looks, save your favourites and shape a visual direction you can act on.',
     image: inspirationMock,
     ctaLabel: 'Read more',
-    ctaHref: '/#more-features'
+    ctaHref: '/features/inspiration-station'
   }
 ];
 
@@ -42,17 +42,20 @@ const extendedFeatures = [
   {
     title: 'Guest Nest',
     copy: 'Manage your guest list, RSVPs, notes, and groupings in one organised space, so nothing gets lost and decisions stay clear.',
-    image: guestNestDetailMock
+    image: guestNestDetailMock,
+    href: '/features/guest-nest'
   },
   {
     title: 'Calm Corner',
     copy: 'A dedicated in app space for grounding guidance, reassurance, and perspective when planning starts to feel emotionally heavy.',
-    image: collageMock
+    image: collageMock,
+    href: '/features/calm-corner'
   },
   {
     title: 'Your Wedding Roadmap',
     copy: 'A clear, step by step planning path that shows what to do, when to do it, and what can wait.', 
-    image: roadmapMock
+    image: roadmapMock,
+    href: '/features/wedding-roadmap'
   }
 ];
 
@@ -65,6 +68,20 @@ const stats = [
 
 const planningPillars = ['Guests', 'Budget', 'Inspiration', 'Timelines', 'Decisions'];
 const heroShots = [heroStripOne, heroStripTwo, heroStripThree];
+
+const trustPoints = [
+  { label: 'Built for decision clarity' },
+  { label: 'No spam — only product updates' },
+  { label: 'Designed to reduce overwhelm' }
+];
+
+const fitSignals = [
+  'You want planning to feel calm, not chaotic.',
+  'You’re tired of opinions being louder than your own voice.',
+  'You love structure but hate spreadsheets.',
+  'You want to make decisions once and stop second guessing.',
+  'You want to plan with your partner without playing project manager.'
+];
 
 const hiddenHomePosts = [
   'what-to-do-after-getting-engaged',
@@ -86,14 +103,15 @@ export default function HomePage() {
         <div className="hero__content">
           <p className="eyebrow">Wedding OS + Journal</p>
           <h1>Plan your wedding with clarity.</h1>
-          <p>
-            One calm app to organise every part of your wedding. From guests and budgets to inspiration and timelines, Do Tell The Bride brings everything together in one considered planning system.
-          </p>
+          <p className="hero__subheading">A calm wedding planning app that keeps decisions clear, overwhelm low, and support easy.</p>
           <div className="hero__actions">
             <Link href="/#contact" className="primary-button">
               Join our early access list
             </Link>
             <Link href="/#services" className="ghost-button">
+              Explore our features
+            </Link>
+            <Link href="/#services" className="hero-secondary-link">
               Explore our features
             </Link>
             <Link href="/overwhelmed-wedding-planning" className="hero-emotion-link">
@@ -105,6 +123,13 @@ export default function HomePage() {
           </div>
         </div>
         <PhonePreviewRow shots={heroShots.map((shot) => ({ src: shot }))} />
+      </section>
+      <section className="trust-strip" aria-label="Product reassurance">
+        {trustPoints.map((point) => (
+          <p className="trust-item" key={point.label}>
+            {point.label}
+          </p>
+        ))}
       </section>
 
       <section className="calm-intro">
@@ -158,9 +183,25 @@ export default function HomePage() {
               ) : null}
               <h3>{feature.title}</h3>
               <p>{feature.copy}</p>
+              {feature.href ? (
+                <Link href={feature.href} className="text-button">
+                  Read more
+                </Link>
+              ) : null}
             </article>
           ))}
         </div>
+      </section>
+      <section className="fit-section">
+        <div className="section-heading small">
+          <p className="eyebrow">This is for you if…</p>
+          <h2>The calm route sounds like relief.</h2>
+        </div>
+        <ul>
+          {fitSignals.map((signal) => (
+            <li key={signal}>{signal}</li>
+          ))}
+        </ul>
       </section>
 
       <section className="stats" id="collections">
@@ -207,6 +248,15 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+      <section className="cta-repeat">
+        <div>
+          <h2>Want first access when we launch?</h2>
+          <p>No spam. Just calm updates and early access.</p>
+        </div>
+        <Link href="/#contact" className="primary-button">
+          Join early access
+        </Link>
+      </section>
 
       <section className="cta" id="contact">
         <div>
@@ -216,6 +266,7 @@ export default function HomePage() {
             Early access to the Do Tell The Bride app, designed to bring structure, clarity, and calm to wedding planning.
           </p>
         </div>
+        <QuickJoinForm />
         <BrevoForm />
       </section>
     </div>
