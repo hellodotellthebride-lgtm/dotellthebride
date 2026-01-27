@@ -77,7 +77,6 @@ export function QuickJoinForm() {
 }
 
 export default function BrevoForm() {
-  const router = useRouter();
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);

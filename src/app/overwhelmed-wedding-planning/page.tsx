@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import ClarityPreview from '@/components/ClarityPreview';
 import BrevoForm from '@/components/BrevoForm';
 import HeroActions from '@/components/HeroActions';
