@@ -3,6 +3,18 @@
 import { FormEvent, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+const pushEvent = (eventName: string) => {
+  if (typeof window === 'undefined') return;
+  const w = window as typeof window & { dataLayer?: Record<string, unknown>[] };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ event: eventName, timestamp: Date.now() });
+};
+
+const scrollToTarget = (id: string) => {
+  if (typeof document === 'undefined') return;
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
 export function QuickJoinForm() {
@@ -69,26 +81,26 @@ export default function BrevoForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);
-  const [showFullForm, setShowFullForm] = useState(false);
+  const [step, setStep] = useState<1 | 2 | 3>(1);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleStepOne = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus('loading');
     setError(null);
 
     const formData = new FormData(event.currentTarget);
-    const payload = {
-      name: formData.get('name')?.toString() ?? '',
-      email: formData.get('email')?.toString() ?? '',
-      focus: formData.get('focus')?.toString() ?? '',
-      message: formData.get('message')?.toString() ?? ''
-    };
+    const email = formData.get('email')?.toString() ?? '';
+    if (!email) {
+      setStatus('error');
+      setError('Please add your email.');
+      return;
+    }
 
     try {
       const response = await fetch('/api/brevo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({ email })
       });
 
       if (!response.ok) {
@@ -96,55 +108,84 @@ export default function BrevoForm() {
         throw new Error(data?.error ?? 'Something went wrong. Please try again.');
       }
 
-      formRef.current?.reset();
-      setStatus('success');
-      router.push('/thank-you');
+      setStatus('idle');
+      pushEvent('early_access_step1_submit');
+      setStep(2);
     } catch (err) {
       setStatus('error');
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
     }
   };
 
+  const handleStepTwo = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus('loading');
+    setError(null);
+
+    const formData = new FormData(event.currentTarget);
+    const answer = formData.get('fallback')?.toString() ?? '';
+    pushEvent('early_access_step2_submit');
+
+    if (answer) {
+      await fetch('/api/brevo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ extra: answer })
+      }).catch(() => null);
+    }
+
+    setStep(3);
+  };
+
+  const handleSkip = () => {
+    pushEvent('early_access_step2_skip');
+    setStep(3);
+  };
+
   return (
-    <>
-      <button type="button" className="form-toggle" onClick={() => setShowFullForm((prev) => !prev)}>
-        Want to tell us more? (optional) {showFullForm ? '−' : '+'}
-      </button>
-      <form
-        ref={formRef}
-        className={`cta__form${showFullForm ? '' : ' cta__form--collapsed'}`}
-        onSubmit={handleSubmit}
-        noValidate
-      >
-        <label>
-          Name
-          <input type="text" name="name" placeholder="Your name(s)" />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" placeholder="hello@email.com" required />
-        </label>
-        <label>
-          Tell us about your wedding
-          <input type="text" name="focus" placeholder="For example, a small countryside wedding next summer" />
-        </label>
-        <label>
-          What would be most helpful right now?
-          <textarea
-            rows={4}
-            name="message"
-            placeholder="For example, guest lists, budgets, timelines, or just getting started"
-          ></textarea>
-        </label>
+    <div className="cta__form">
+      {step === 1 && (
+        <form ref={formRef} onSubmit={handleStepOne} noValidate>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="you@email.com" required />
+          </label>
+          {status === 'error' && <p className="form-status form-status--error">{error}</p>}
+          <button type="submit" className="primary-button" disabled={status === 'loading'}>
+            {status === 'loading' ? 'Submitting…' : 'Start with clarity'}
+          </button>
+          <p className="form-microcopy">No spam — just thoughtful updates when clarity matters.</p>
+        </form>
+      )}
 
-        {status === 'success' && <p className="form-status form-status--success">Thanks for joining. You’re on the list.</p>}
-        {status === 'error' && <p className="form-status form-status--error">{error}</p>}
+      {step === 2 && (
+        <form onSubmit={handleStepTwo} noValidate>
+          <h3>One quick question (optional)</h3>
+          <label>
+            If this didn’t exist, what would you do instead?
+            <textarea name="fallback" rows={3} placeholder="Google, spreadsheets, ask friends, avoid it, hire a planner…"></textarea>
+          </label>
+          {status === 'error' && <p className="form-status form-status--error">{error}</p>}
+          <div className="cta__actions">
+            <button type="submit" className="primary-button" disabled={status === 'loading'}>
+              {status === 'loading' ? 'Sending…' : 'Send'}
+            </button>
+            <button type="button" className="cta__skip" onClick={handleSkip}>
+              Skip for now
+            </button>
+          </div>
+        </form>
+      )}
 
-        <button type="submit" className="primary-button" disabled={status === 'loading'}>
-          {status === 'loading' ? 'Submitting…' : 'Join early access'}
-        </button>
-        <p className="form-microcopy">No spam — just app updates and early access.</p>
-      </form>
-    </>
+      {step === 3 && (
+        <div className="cta__success">
+          <h3>You’re in.</h3>
+          <p>We’ll email when the next step is worth your attention.</p>
+          <button type="button" onClick={() => scrollToTarget('top')} className="cta__success-link">
+            Back to the page
+          </button>
+        </div>
+      )}
+    </div>
   );
 }

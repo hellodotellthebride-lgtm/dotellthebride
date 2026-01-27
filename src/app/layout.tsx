@@ -18,7 +18,10 @@ const body = Manrope({
 export const metadata: Metadata = {
   title: 'Do Tell The Bride | Beautiful Wedding Management',
   description:
-    'Do Tell The Bride blends thoughtful planning with editorial styling to deliver unforgettable weddings and a compelling content engine.'
+    'Do Tell The Bride blends thoughtful planning with editorial styling to deliver unforgettable weddings and a compelling content engine.',
+  other: {
+    'p:domain_verify': '07f6b49e9bad19fd34288471cf0034d7'
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

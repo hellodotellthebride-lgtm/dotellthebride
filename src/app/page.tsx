@@ -71,7 +71,7 @@ const heroShots = [heroStripOne, heroStripTwo, heroStripThree];
 
 const trustPoints = [
   { label: 'Built for decision clarity' },
-  { label: 'No spam — only product updates' },
+  { label: 'No spam - only product updates' },
   { label: 'Designed to reduce overwhelm' }
 ];
 
