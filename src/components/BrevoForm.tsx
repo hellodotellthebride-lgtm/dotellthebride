@@ -1,7 +1,6 @@
 'use client';
 
 import { FormEvent, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 const pushEvent = (eventName: string) => {
   if (typeof window === 'undefined') return;
