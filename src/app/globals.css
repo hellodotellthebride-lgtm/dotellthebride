@@ -1558,3 +1558,45 @@ section {
     gap: 2rem;
   }
 }
+
+@media (max-width: 640px) {
+  .owp-hero {
+    padding: 2rem;
+    border-radius: 32px;
+  }
+
+  .owp-hero__content h1 {
+    font-size: 2.1rem;
+  }
+
+  .owp-hero__content p {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .hero-actions .primary-button,
+  .hero-actions__link {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .owp-preview {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cta {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    border-radius: 28px;
+  }
+
+  .cta__form {
+    padding: 1.25rem;
+  }
+}
