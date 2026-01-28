@@ -56,7 +56,7 @@ export default function EarlyAccessForm({ className }: { className?: string }) {
         required
       />
       <button type="submit" className="primary-button" disabled={status === 'loading'}>
-        {status === 'loading' ? 'Submitting…' : 'Join early access'}
+        {status === 'loading' ? 'Submitting…' : 'Start with clarity'}
       </button>
       {feedback ? (
         <p className={`form-status ${status === 'success' ? 'form-status--success' : 'form-status--error'}`}>{feedback}</p>

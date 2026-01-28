@@ -87,7 +87,7 @@ export default function AppPage() {
           </p>
           <div className="hero__actions">
             <Link href="#early-access" className="primary-button">
-              Join early access
+              Start with clarity
             </Link>
             <Link href="#how-it-works" className="ghost-button">
               See how it works
@@ -113,7 +113,7 @@ export default function AppPage() {
           </p>
           <div className="start-here__actions">
             <Link href="#early-access" className="primary-button">
-              Join early access
+              Start with clarity
             </Link>
             <Link href="#how-it-works" className="ghost-button">
               See how it works

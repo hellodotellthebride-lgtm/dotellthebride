@@ -4,7 +4,7 @@ import EarlyAccessForm from '@/components/EarlyAccessForm';
 export const metadata: Metadata = {
   title: 'Early Access | Do Tell The Bride',
   description:
-    'Join early access to Do Tell The Bride — a calm wedding planning system for decisions, budgets, guests, and timelines without overwhelm.'
+    'Start with clarity via Do Tell The Bride — a calm wedding planning system for decisions, budgets, guests, and timelines without overwhelm.'
 };
 
 const whyPoints = [
@@ -33,14 +33,14 @@ export default function EarlyAccessPage() {
   return (
     <div className="focus-page">
       <section className="focus-hero">
-        <p className="eyebrow">Early access</p>
+        <p className="eyebrow">Start with clarity</p>
         <h1>Plan your wedding without the overwhelm.</h1>
         <p>
           One calm place to organise decisions, budgets, guests, and timelines — without spreadsheets, chaos, or constant
           second-guessing.
         </p>
         <EarlyAccessForm />
-        <p className="focus-microcopy">No spam. Only updates about the app.</p>
+        <p className="focus-microcopy">No spam. Only thoughtful updates when clarity matters.</p>
       </section>
 
       <section className="focus-section">
@@ -59,7 +59,7 @@ export default function EarlyAccessPage() {
 
       <section className="focus-section">
         <p className="eyebrow">What you get</p>
-        <h2>When you join early access, you’ll get:</h2>
+        <h2>When you start with clarity, you’ll get:</h2>
         <ul className="focus-list">
           {earlyAccessBenefits.map((item) => (
             <li key={item}>{item}</li>
@@ -77,8 +77,8 @@ export default function EarlyAccessPage() {
       <section className="focus-final">
         <h2>If planning your wedding feels heavier than it should, this is for you.</h2>
         <EarlyAccessForm />
-        <p className="focus-microcopy">No spam. Only updates about the app.</p>
-      </section>
-    </div>
-  );
+        <p className="focus-microcopy">No spam. Only thoughtful updates when clarity matters.</p>
+    </section>
+  </div>
+);
 }

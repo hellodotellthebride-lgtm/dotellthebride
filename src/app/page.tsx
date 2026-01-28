@@ -3,6 +3,7 @@ import { getAllPosts } from '@/lib/posts';
 import Image from 'next/image';
 import PhonePreviewRow from '@/components/PhonePreviewRow';
 import BrevoForm, { QuickJoinForm } from '@/components/BrevoForm';
+import HomeCheckIn from '@/components/HomeCheckIn';
 import heroStripOne from '@/assets/App mockup-4.png';
 import heroStripTwo from '@/assets/App mockup-11.png';
 import heroStripThree from '@/assets/App mockup-8.png';
@@ -105,14 +106,14 @@ export default function HomePage() {
           <h1>Plan your wedding with clarity.</h1>
           <p className="hero__subheading">A calm wedding planning app that keeps decisions clear, overwhelm low, and support easy.</p>
           <div className="hero__actions">
-            <Link href="/#contact" className="primary-button">
-              Join our early access list
+            <Link href="/#signup" className="primary-button">
+              Yes — I want calmer planning
             </Link>
             <Link href="/#services" className="ghost-button">
-              Explore our features
+              I’m curious — show me how it works
             </Link>
             <Link href="/#services" className="hero-secondary-link">
-              Explore our features
+              Discover what’s inside
             </Link>
             <Link href="/overwhelmed-wedding-planning" className="hero-emotion-link">
               <span>Feeling overwhelmed with wedding planning?</span>
@@ -131,6 +132,7 @@ export default function HomePage() {
           </p>
         ))}
       </section>
+      <HomeCheckIn />
 
       <section className="calm-intro">
         <div>
@@ -250,21 +252,19 @@ export default function HomePage() {
       </section>
       <section className="cta-repeat">
         <div>
-          <h2>Want first access when we launch?</h2>
-          <p>No spam. Just calm updates and early access.</p>
+          <h2>Want clarity before you make your next move?</h2>
+          <p>We’ll only reach out when the next step genuinely matters.</p>
         </div>
-        <Link href="/#contact" className="primary-button">
-          Join early access
+        <Link href="/#signup" className="primary-button">
+          Start with clarity
         </Link>
       </section>
 
-      <section className="cta" id="contact">
+      <section className="cta" id="signup">
         <div>
-          <p className="eyebrow">Early access</p>
-          <h2>A calmer way to plan your wedding</h2>
-          <p>
-            Early access to the Do Tell The Bride app, designed to bring structure, clarity, and calm to wedding planning.
-          </p>
+          <p className="eyebrow">Ready when you are</p>
+          <h2>Start with clarity when you’re ready.</h2>
+          <p>We’ll only reach out when the next step genuinely matters.</p>
         </div>
         <QuickJoinForm />
         <BrevoForm />

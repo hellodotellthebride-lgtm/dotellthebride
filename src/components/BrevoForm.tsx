@@ -49,8 +49,8 @@ export function QuickJoinForm() {
 
   return (
     <div className="quick-join">
-      <p className="quick-join__title">Get early access updates</p>
-      <form className="quick-join-form" onSubmit={handleQuickSubmit} aria-label="Quick early access signup">
+      <p className="quick-join__title">Start with clarity updates</p>
+      <form className="quick-join-form" onSubmit={handleQuickSubmit} aria-label="Quick clarity signup">
         <label htmlFor="quick-email" className="sr-only">
           Email
         </label>
@@ -64,13 +64,13 @@ export function QuickJoinForm() {
           required
         />
         <button type="submit" className="primary-button" disabled={status === 'loading'}>
-          {status === 'loading' ? 'Submitting…' : 'Join early access'}
+          {status === 'loading' ? 'Submitting…' : 'Start with clarity'}
         </button>
       </form>
       {feedback ? (
         <p className={`form-status ${status === 'success' ? 'form-status--success' : 'form-status--error'}`}>{feedback}</p>
       ) : null}
-      <p className="form-microcopy">No spam — only app updates and early access.</p>
+      <p className="form-microcopy">No spam — just thoughtful updates when clarity matters.</p>
     </div>
   );
 }

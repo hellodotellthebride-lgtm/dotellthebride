@@ -51,9 +51,9 @@ export default function FeatureDetail({
           Back to features
         </Link>
         <h3>Ready for calm clarity?</h3>
-        <p>No spam. Just calm updates and early access.</p>
-        <Link href="/#contact" className="primary-button">
-          Join early access
+        <p>We’ll only reach out when the next step genuinely matters.</p>
+        <Link href="/#signup" className="primary-button">
+          Start with clarity
         </Link>
       </section>
     </div>
