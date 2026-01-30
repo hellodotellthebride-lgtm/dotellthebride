@@ -4,7 +4,7 @@ import EarlyAccessForm from '@/components/EarlyAccessForm';
 export const metadata: Metadata = {
   title: 'Early Access | Do Tell The Bride',
   description:
-    'Start with clarity via Do Tell The Bride — a calm wedding planning system for decisions, budgets, guests, and timelines without overwhelm.'
+    'Start with clarity via Do Tell The Bride - a calm wedding planning system for decisions, budgets, guests, and timelines without overwhelm.'
 };
 
 const whyPoints = [
@@ -36,7 +36,7 @@ export default function EarlyAccessPage() {
         <p className="eyebrow">Start with clarity</p>
         <h1>Plan your wedding without the overwhelm.</h1>
         <p>
-          One calm place to organise decisions, budgets, guests, and timelines — without spreadsheets, chaos, or constant
+          One calm place to organise decisions, budgets, guests, and timelines - without spreadsheets, chaos, or constant
           second-guessing.
         </p>
         <EarlyAccessForm />
@@ -69,7 +69,7 @@ export default function EarlyAccessPage() {
 
       <section className="focus-section">
         <p>
-          Built by brides who found existing planning tools overwhelming, scattered, or emotionally tone-deaf — and
+          Built by brides who found existing planning tools overwhelming, scattered, or emotionally tone-deaf - and
           decided to build something better.
         </p>
       </section>

@@ -17,7 +17,7 @@ export default function BlogPage() {
         <p className="eyebrow">The Journal</p>
         <h1>Calm thinking for modern weddings</h1>
         <p>
-          Honest thinking on modern wedding planning — from decision overload and budget anxiety to design clarity, timelines, and the emotional stuff nobody warns you about. Practical ideas, grounded advice, and calm perspective for couples who want a wedding that actually feels like theirs.
+          Honest thinking on modern wedding planning - from decision overload and budget anxiety to design clarity, timelines, and the emotional stuff nobody warns you about. Practical ideas, grounded advice, and calm perspective for couples who want a wedding that actually feels like theirs.
         </p>
       </div>
       <div className="blog-archive__grid">

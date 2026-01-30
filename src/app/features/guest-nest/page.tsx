@@ -10,7 +10,7 @@ export default function GuestNestPage() {
   return (
     <FeatureDetail
       title="Guest Nest"
-      intro="A calm home for every guest detail — from RSVPs to meal notes — so you can plan confidently without spreadsheets."
+      intro="A calm home for every guest detail - from RSVPs to meal notes - so you can plan confidently without spreadsheets."
       helps={[
         'Track RSVPs and updates without digging through emails',
         'Group guests for seating or events with ease',

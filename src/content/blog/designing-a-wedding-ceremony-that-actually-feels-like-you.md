@@ -1,6 +1,6 @@
 ---
 title: Designing a Wedding Ceremony That Actually Feels Like You
-excerpt: Design a personal wedding ceremony without the overwhelm. Calm, modern ideas to create a ceremony that actually feels like you — not a copy-paste script.
+excerpt: Design a personal wedding ceremony without the overwhelm. Calm, modern ideas to create a ceremony that actually feels like you - not a copy-paste script.
 coverImage: https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80
 author: Do Tell The Bride
 date: 2024-02-22
@@ -17,7 +17,7 @@ Most couples spend months obsessing over the food, the flowers, the seating plan
 Then suddenly it’s:
 “Oh. We should probably think about the ceremony.”
 
-And yet — this is the bit that actually matters.
+And yet - this is the bit that actually matters.
 
 Not the chair covers.  
 Not the colour of the napkins.  
@@ -51,7 +51,7 @@ This is how you design a ceremony that feels intentional rather than stitched to
 A common fear:
 “If we personalise it, it’ll feel cringe.”
 
-It won’t — if you do it *selectively*.
+It won’t - if you do it *selectively*.
 
 You don’t need:
 - ten readings
@@ -89,7 +89,7 @@ A calm, grounded ceremony:
 - pulls guests into the moment
 - makes the rest of the day feel intentional rather than rushed  
 
-When the ceremony feels right, everything else flows better — speeches, drinks, dancing, all of it.
+When the ceremony feels right, everything else flows better - speeches, drinks, dancing, all of it.
 
 ## Designing your ceremony shouldn’t add stress
 

@@ -19,7 +19,7 @@ If wedding planning feels exhausting before you’ve even “done” very much, 
 
 ## Why wedding planning creates decision overload
 
-Wedding planning isn’t just one project. It’s dozens of interconnected decisions stacked on top of each other. You’re asked to decide who to invite, how much to spend, what matters most, what can be skipped, whose opinion counts — and none of these decisions exist in isolation.
+Wedding planning isn’t just one project. It’s dozens of interconnected decisions stacked on top of each other. You’re asked to decide who to invite, how much to spend, what matters most, what can be skipped, whose opinion counts - and none of these decisions exist in isolation.
 
 Your guest list affects your budget. Your budget affects your venue. Your venue affects your timeline. Your timeline affects everything else. This is why wedding planning feels overwhelming, even for organised people.
 
@@ -45,4 +45,4 @@ You don’t need to make every decision perfectly. You need to make them intenti
 
 ## If wedding planning feels overwhelming right now
 
-It doesn’t mean you’re failing at it. It means you’re carrying too many decisions without enough structure — and that’s fixable.
+It doesn’t mean you’re failing at it. It means you’re carrying too many decisions without enough structure - and that’s fixable.

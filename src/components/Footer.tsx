@@ -30,7 +30,7 @@ export default function Footer() {
         <div>
           <p className="eyebrow">DO TELL THE BRIDE</p>
           <h3>Wedding planning, without the overwhelm.</h3>
-          <p>A calm, considered space to plan your wedding with clarity, structure, and confidence — from first decisions to final details.</p>
+          <p>A calm, considered space to plan your wedding with clarity, structure, and confidence - from first decisions to final details.</p>
           <p>Designed for modern couples who want less noise and more certainty.</p>
         </div>
         <div>

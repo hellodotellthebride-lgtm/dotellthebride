@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useMemo, useState } from 'react';
+import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 type Step = 1 | 2 | 3;
 
@@ -12,46 +12,159 @@ type TimingOption = (typeof timingOptions)[number];
 type HeadspaceOption = (typeof headspaceOptions)[number];
 type NoiseOption = (typeof noiseOptions)[number];
 
-const timelineTitleMap: Record<TimingOption, string> = {
-  '12+ months': 'Just engaged',
-  '9-12 months': 'Early planning',
-  '6-9 months': 'Decision season',
-  '3-6 months': 'Details mode',
-  '4-8 weeks': 'Final stretch',
-  '1-3 weeks': 'Almost there',
-  'Wedding week': 'Wedding week'
+const timelineMeta: Record<TimingOption, { stageTitle: string; stageLine: string }> = {
+  '12+ months': {
+    stageTitle: 'Just engaged',
+    stageLine: 'You are in the wide-open part of planning where orientation matters more than tasks.'
+  },
+  '9-12 months': {
+    stageTitle: 'Early planning',
+    stageLine: 'You are shaping direction before the big decisions lock in.'
+  },
+  '6-9 months': {
+    stageTitle: 'Decision season',
+    stageLine: 'You are mid-planning, where trade-offs become real.'
+  },
+  '3-6 months': {
+    stageTitle: 'Details mode',
+    stageLine: 'You are managing moving pieces that touch every part of the day.'
+  },
+  '4-8 weeks': {
+    stageTitle: 'Final stretch',
+    stageLine: 'You are closing loops and protecting energy before the day arrives.'
+  },
+  '1-3 weeks': {
+    stageTitle: 'Almost there',
+    stageLine: 'You are in the final focus window where calm is a priority.'
+  },
+  'Wedding week': {
+    stageTitle: 'Wedding week',
+    stageLine: 'You are already in the week of the wedding, where less is more.'
+  }
 };
 
-const noiseTitleSuffix: Record<NoiseOption, string> = {
-  'Too many opinions': 'carrying too many voices',
-  'Too many options': 'decisions competing for attention',
-  'Budget uncertainty': 'money questions blurring decisions',
-  "I don't know where to start": 'not sure where to begin'
+const heavinessMeta: Record<HeadspaceOption, { toneLine: string; pacingLine: string; needsProtection: boolean }> = {
+  Light: {
+    toneLine: 'You have breathing room, so gentle structure is enough.',
+    pacingLine: 'Keep choices small and reflective.',
+    needsProtection: false
+  },
+  Manageable: {
+    toneLine: 'You are carrying things steadily even if they take effort.',
+    pacingLine: 'Plan in small bursts and pause often.',
+    needsProtection: false
+  },
+  'A bit much': {
+    toneLine: 'Your brain is asking for clearer order.',
+    pacingLine: 'Limit tasks to the ones that move you forward.',
+    needsProtection: false
+  },
+  Overwhelming: {
+    toneLine: 'There is no spare capacity right now.',
+    pacingLine: 'Reduce the volume before adding anything new.',
+    needsProtection: true
+  },
+  'Please make it stop': {
+    toneLine: 'Your energy needs protection more than it needs action.',
+    pacingLine: 'Only the calmest decisions stay on the table today.',
+    needsProtection: true
+  }
 };
 
-const timelineContextMap: Record<TimingOption, string> = {
-  '12+ months': 'In the just-engaged stage,',
-  '9-12 months': 'In early planning,',
-  '6-9 months': 'Mid-planning,',
-  '3-6 months': 'As details stack up,',
-  '4-8 weeks': 'In the final stretch,',
-  '1-3 weeks': 'With the day almost here,',
-  'Wedding week': 'This week,'
+const noiseMeta: Record<NoiseOption, { problemTitle: string; problemLine: string }> = {
+  'Too many opinions': {
+    problemTitle: 'carrying too many voices',
+    problemLine: 'Other people’s thoughts are taking up the space your voice needs.'
+  },
+  'Too many options': {
+    problemTitle: 'decisions competing for attention',
+    problemLine: 'Every option looks possible which keeps you in research mode.'
+  },
+  'Budget uncertainty': {
+    problemTitle: 'money questions blurring decisions',
+    problemLine: 'Spending choices are mixing with emotional choices, so nothing feels solid.'
+  },
+  "I don't know where to start": {
+    problemTitle: 'not sure where to begin',
+    problemLine: 'Direction disappeared, so even simple steps feel heavy.'
+  }
 };
 
-const noiseValidationMap: Record<NoiseOption, string> = {
-  'Too many opinions': 'it makes sense that other voices feel louder than your own',
-  'Too many options': 'every option is fighting for your attention',
-  'Budget uncertainty': 'money questions keep blurring even simple choices',
-  "I don't know where to start": 'not being sure where to begin makes everything feel bigger than it is'
+const timelineOrder: TimingOption[] = [...timingOptions];
+const headspaceOrder: HeadspaceOption[] = [...headspaceOptions];
+const noiseOrder: NoiseOption[] = [...noiseOptions];
+
+const tryThisByNoise: Record<NoiseOption, string[]> = {
+  'Too many opinions': [
+    'Mute the loudest group chat for the next 24 hours.',
+    'Ask only the person who will stand beside you to weigh in today.'
+  ],
+  'Too many options': [
+    'Pick one shortlist and ignore every other tab for the day.',
+    'Decide in advance how many options you will actively compare.'
+  ],
+  'Budget uncertainty': [
+    'Write the top two priorities before reopening the spreadsheet.',
+    'Label spends as must-have or nice-to-have and pause everything else.'
+  ],
+  "I don't know where to start": [
+    'Name one thing that matters by the end of today and let that be enough.',
+    'List what is already decided so the next choice feels smaller.'
+  ]
 };
 
-const headspaceFeelingMap: Record<HeadspaceOption, string> = {
-  Light: 'You have breathing room — keep it gentle.',
-  Manageable: 'You’re holding it, but it still deserves care.',
-  'A bit much': 'Your headspace is asking for clearer order.',
-  Overwhelming: 'There isn’t any spare capacity right now.',
-  'Please make it stop': 'Your energy needs protection before more input.'
+const tryThisByHeaviness: Record<HeadspaceOption, string[]> = {
+  Light: [
+    'Add a gentle planning block to your calendar and stop once it ends.',
+    'Protect the calm by closing the laptop after one decision.'
+  ],
+  Manageable: [
+    'Set a fifteen minute timer so planning stays contained.',
+    'Choose the next step before checking any inspiration feeds.'
+  ],
+  'A bit much': [
+    'Trade one decision for rest and revisit with a clearer head.',
+    'Move one choice to tomorrow so today can stay lighter.'
+  ],
+  Overwhelming: [
+    'Step away from planning for one hour before you decide anything.',
+    'Ask someone you trust to own the next email or phone call.'
+  ],
+  'Please make it stop': [
+    'Delay every non-essential task until you have slept or eaten.',
+    'Give yourself permission to do nothing wedding-related this evening.'
+  ]
+};
+
+const tryThisByTimeline: Record<TimingOption, string[]> = {
+  '12+ months': [
+    'Keep ideas in one calm note so they stay organised.',
+    'Focus on naming the feeling of the day, not the details.'
+  ],
+  '9-12 months': [
+    'Reconnect to your top values before messaging any suppliers.',
+    'Use a single planning doc and archive everything else.'
+  ],
+  '6-9 months': [
+    'Choose trade-offs once, then remind yourself why they matter.',
+    'Finish the easiest decision first to build fresh momentum.'
+  ],
+  '3-6 months': [
+    'Batch admin by theme so details stop bleeding into each other.',
+    'Confirm one supplier at a time and move on immediately.'
+  ],
+  '4-8 weeks': [
+    'Treat new ideas as optional experiments, not requirements.',
+    'If a change does not make the day calmer, skip it.'
+  ],
+  '1-3 weeks': [
+    'Delegate anything that is not strictly yours to decide.',
+    'Check the running order once, then put it away.'
+  ],
+  'Wedding week': [
+    'Keep your phone out of reach during rest pockets.',
+    'Let someone else handle final questions so you can stay present.'
+  ]
 };
 
 type TimelineBand = 'early' | 'mid' | 'late';
@@ -66,78 +179,62 @@ const timelineBandMap: Record<TimingOption, TimelineBand> = {
   'Wedding week': 'late'
 };
 
-const reframingMatrix: Record<NoiseOption, Record<TimelineBand, string>> = {
-  'Too many opinions': {
-    early: 'When your vision is still forming, outside voices rush in — filtering slowly is the work.',
-    mid: 'Once choices are visible, more people weigh in. Restricting who gets input keeps things humane.',
-    late: 'Closer to the day, opinions spike because change feels urgent. Narrowing the circle protects your energy.'
-  },
-  'Too many options': {
-    early: 'Exploration is useful now, but the ideas need a container so possibilities don’t multiply forever.',
-    mid: 'Mid-planning needs constraints, not more research — choosing trade-offs is forward motion.',
-    late: 'Late in planning, new options mostly create rework. Closing the door on extras is progress.'
-  },
-  'Budget uncertainty': {
-    early: 'Before timelines kick in, money worries are your brain asking for priorities first.',
-    mid: 'Midway through, budgets feel blurry because every decision connects. Revisiting what matters keeps you steady.',
-    late: 'Near the finish line, budget wobbles are about protection. Only adjust if it truly changes the day.'
-  },
-  "I don't know where to start": {
-    early: 'At the very start, direction comes before action. Structure is the missing ingredient.',
-    mid: 'Even mid-planning, losing the starting thread means the roadmap needs simplifying.',
-    late: 'This close to the day, you don’t need a new plan — just reconnect to the next visible step.'
-  }
-};
+const orientationPool = [
+  'A way to turn vague ideas into clear priorities before planning begins.',
+  'A starting point that helps couples understand what actually matters to them.',
+  'Early planning support that focuses on direction, not action.'
+];
 
-const overwhelmLineMap: Record<NoiseOption, string> = {
-  'Too many opinions': 'Planning logic that knows when to stop asking for more input.',
-  'Too many options': 'Built-in limits that prevent planning overload.',
-  'Budget uncertainty': 'A calmer alternative to endless lists, tabs, and spreadsheets.',
-  "I don't know where to start": 'Planning support that intentionally narrows as the wedding gets closer.'
-};
+const decisionPool = [
+  'Structured comparisons that make trade-offs clearer, not louder.',
+  'A decision layer that prevents endless re-thinking.'
+];
 
-const orientationLines: Record<NoiseOption, string> = {
-  'Too many opinions': 'A starting point that helps couples understand what actually matters to them.',
-  'Too many options': 'Early planning support that focuses on direction, not action.',
-  'Budget uncertainty': 'A way to turn vague ideas into clear priorities before planning begins.',
-  "I don't know where to start": 'A starting point that helps couples understand what actually matters to them.'
-};
+const pacePool = [
+  'Planning support that intentionally narrows as the wedding gets closer.',
+  'An experience that hides non-essential decisions when pressure is high.',
+  'A system that protects energy during the final stretch.'
+];
 
-const decisionLines: Record<NoiseOption, string> = {
-  'Too many opinions': 'Decision support that helps couples choose once — and move on.',
-  'Too many options': 'Structured comparisons that make trade-offs clearer, not louder.',
-  'Budget uncertainty': 'A decision layer that prevents endless re-thinking.',
-  "I don't know where to start": 'Decision support that helps couples choose once — and move on.'
-};
+const overwhelmPool = [
+  'Built-in limits that prevent planning overload.',
+  'A calmer alternative to endless lists, tabs, and spreadsheets.',
+  'Planning logic that knows when to stop asking for more input.'
+];
 
-const paceLines: Record<NoiseOption, string> = {
-  'Too many opinions': 'An experience that hides non-essential decisions when pressure is high.',
-  'Too many options': 'Planning support that intentionally narrows as the wedding gets closer.',
-  'Budget uncertainty': 'A system that protects energy during the final stretch.',
-  "I don't know where to start": 'A system that protects energy during the final stretch.'
-};
-
-const nextStepMap: Record<HeadspaceOption, string> = {
-  Light: 'Capture the calm by noting one thing that already feels steady — nothing more.',
-  Manageable: 'Write down the smallest next step and pause once it’s on paper.',
-  'A bit much': 'Pick one decision to pause and one to move forward — no extra tabs.',
-  Overwhelming: 'Close the tabs and revisit only the choice that truly shapes this week.',
-  'Please make it stop': 'Step away for an hour; nothing new deserves your energy until you’ve rested.'
-};
-
-const buildProductLine = (timing: TimingOption, headspace: HeadspaceOption, noise: NoiseOption): string => {
-  if (headspace === 'Overwhelming' || headspace === 'Please make it stop') {
-    return overwhelmLineMap[noise];
-  }
-
+const buildProductLine = (timing: TimingOption, headspace: HeadspaceOption): string => {
   const band = timelineBandMap[timing];
+  if (headspace === 'Overwhelming' || headspace === 'Please make it stop') {
+    return overwhelmPool[(headspaceOrder.indexOf(headspace) + band.length) % overwhelmPool.length];
+  }
   if (band === 'early') {
-    return orientationLines[noise];
+    return orientationPool[headspaceOrder.indexOf(headspace) % orientationPool.length];
   }
   if (band === 'mid') {
-    return decisionLines[noise];
+    return decisionPool[headspaceOrder.indexOf(headspace) % decisionPool.length];
   }
-  return paceLines[noise];
+  return pacePool[(headspaceOrder.indexOf(headspace) + 1) % pacePool.length];
+};
+
+const getTryThis = (timing: TimingOption, headspace: HeadspaceOption, noise: NoiseOption): string => {
+  const tIndex = timelineOrder.indexOf(timing);
+  const hIndex = headspaceOrder.indexOf(headspace);
+  const nIndex = noiseOrder.indexOf(noise);
+  const pick = (arr: string[]) => arr[(tIndex + hIndex + nIndex) % arr.length];
+  return `${pick(tryThisByNoise[noise])} ${pick(tryThisByHeaviness[headspace])} ${pick(tryThisByTimeline[timing])}`.trim();
+};
+
+const getReflectionContent = (timing: TimingOption, headspace: HeadspaceOption, noise: NoiseOption) => {
+  const { stageTitle, stageLine } = timelineMeta[timing];
+  const { problemTitle, problemLine } = noiseMeta[noise];
+  const { toneLine, pacingLine, needsProtection } = heavinessMeta[headspace];
+  const titlePrefix = `${stageTitle} — ${problemTitle}`;
+  const title = needsProtection ? `${titlePrefix} (go gently)` : titlePrefix;
+  const intro = `${stageLine} ${toneLine}`;
+  const body = `${problemLine} ${pacingLine}`;
+  const building = buildProductLine(timing, headspace);
+  const tryThis = getTryThis(timing, headspace, noise);
+  return { title, intro, body, building, tryThis };
 };
 
 const scrollToSignup = () => {
@@ -155,6 +252,9 @@ export default function HomeCheckIn() {
   const [headspace, setHeadspace] = useState<HeadspaceOption | null>(null);
   const [noise, setNoise] = useState<NoiseOption | null>(null);
   const [showResult, setShowResult] = useState(false);
+  const [hasAutoScrolled, setHasAutoScrolled] = useState(false);
+  const resultsRef = useRef<HTMLDivElement>(null);
+  const cardScrollRef = useRef<HTMLDivElement>(null);
 
   const canProceed = useMemo(() => {
     if (step === 1) return Boolean(timing);
@@ -165,19 +265,10 @@ export default function HomeCheckIn() {
 
   const result = useMemo(() => {
     if (!timing || !headspace || !noise) return null;
-    const baseTitle = `${timelineTitleMap[timing]} — ${noiseTitleSuffix[noise]}`;
-    const title = headspace === 'Overwhelming' || headspace === 'Please make it stop' ? `${baseTitle} (go gently)` : baseTitle;
-    const validation = `${timelineContextMap[timing]} ${noiseValidationMap[noise]}. ${headspaceFeelingMap[headspace]}`;
-    const reframing = reframingMatrix[noise][timelineBandMap[timing]];
-    const building = buildProductLine(timing, headspace, noise);
-    const nextStep = nextStepMap[headspace];
-
+    const tryThis = getTryThis(timing, headspace, noise);
     return {
-      title,
-      validation,
-      reframing,
-      building,
-      nextStep
+      ...getReflectionContent(timing, headspace, noise),
+      tryThis
     };
   }, [timing, headspace, noise]);
 
@@ -187,6 +278,7 @@ export default function HomeCheckIn() {
     setHeadspace(null);
     setNoise(null);
     setShowResult(false);
+    setHasAutoScrolled(false);
   };
 
   const handleNext = () => {
@@ -195,6 +287,11 @@ export default function HomeCheckIn() {
       setStep((prev) => (prev + 1) as Step);
       return;
     }
+
+    if (!showResult) {
+      setHasAutoScrolled(false);
+    }
+
     setShowResult(true);
     const button = document.querySelector('[data-event="checkin_completed"]');
     if (button instanceof HTMLElement) button.blur();
@@ -210,6 +307,26 @@ export default function HomeCheckIn() {
     setStep((prev) => (prev - 1) as Step);
   };
 
+  const handleChangeAnswers = () => {
+    setShowResult(false);
+    setHasAutoScrolled(false);
+    cardScrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    if (showResult && !hasAutoScrolled) {
+      resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setHasAutoScrolled(true);
+    }
+  }, [showResult, hasAutoScrolled]);
+
+  const summaryValues = useMemo(() => {
+    if (!timing || !headspace || !noise) return [] as string[];
+    return [timing, headspace, noise];
+  }, [timing, headspace, noise]);
+
+  const summaryText = showResult && summaryValues.length === 3 ? summaryValues.join(' · ') : null;
+
   return (
     <section className="checkin">
       <div className="checkin__intro">
@@ -217,25 +334,31 @@ export default function HomeCheckIn() {
         <h2>Where are you right now?</h2>
         <p>Answer a few gentle questions and we’ll reflect what matters most - without adding more to your plate.</p>
       </div>
-      <div className="checkin__grid">
-        <form className="checkin__panel" onSubmit={handleSubmit}>
-          <div className="checkin__progress">
-            <span>
-              {step} of 3
-            </span>
-            {step > 1 && (
-              <button type="button" className="text-button" onClick={handleBack}>
-                Back
-              </button>
-            )}
+      <form onSubmit={handleSubmit} className="checkin__form">
+        <div className={`checkin__card${showResult ? ' is-result' : ''}`}>
+          <div className="checkin__headerbar">
+            <div className="checkin__progress">
+              <span>{showResult ? 'Reflection' : `${step} of 3`}</span>
+              <div className="checkin__headerbar-actions">
+                {!showResult && step > 1 && (
+                  <button type="button" className="text-button" onClick={handleBack}>
+                    Back
+                  </button>
+                )}
+                <button type="button" className="text-button" onClick={reset}>
+                  Restart
+                </button>
+              </div>
+            </div>
           </div>
-          {step === 1 && (
-            <div>
-              <p className="checkin__label">How close is your wedding?</p>
+          <div className="checkin__body" ref={cardScrollRef}>
+            {step === 1 && (
+              <div>
+                <p className="checkin__label">How close is your wedding?</p>
               <p className="checkin__reassure">30 seconds. No email.</p>
               <div className="checkin__options">
                 {timingOptions.map((option) => (
-                  <label key={option}>
+                  <label key={option} className={timing === option ? 'is-active' : undefined}>
                     <input type="radio" name="timing" value={option} checked={timing === option} onChange={() => setTiming(option)} />
                     <span>{option}</span>
                   </label>
@@ -243,12 +366,12 @@ export default function HomeCheckIn() {
               </div>
             </div>
           )}
-          {step === 2 && (
-            <div>
-              <p className="checkin__label">How heavy does planning feel today?</p>
+            {step === 2 && (
+              <div>
+                <p className="checkin__label">How heavy does planning feel today?</p>
               <div className="checkin__options">
                 {headspaceOptions.map((option) => (
-                  <label key={option}>
+                  <label key={option} className={headspace === option ? 'is-active' : undefined}>
                     <input type="radio" name="headspace" value={option} checked={headspace === option} onChange={() => setHeadspace(option)} />
                     <span>{option}</span>
                   </label>
@@ -256,59 +379,92 @@ export default function HomeCheckIn() {
               </div>
             </div>
           )}
-          {step === 3 && (
-            <div>
-              <p className="checkin__label">What’s creating the most noise right now?</p>
-              <div className="checkin__options">
-                {noiseOptions.map((option) => (
-                  <label key={option}>
-                    <input type="radio" name="noise" value={option} checked={noise === option} onChange={() => setNoise(option)} />
-                    <span>{option}</span>
-                  </label>
-                ))}
+            {step === 3 && (
+              <div>
+                {!showResult ? (
+                  <>
+                    <p className="checkin__label">What’s creating the most noise right now?</p>
+                    <div className="checkin__options">
+                      {noiseOptions.map((option) => (
+                        <label key={option} className={noise === option ? 'is-active' : undefined}>
+                          <input type="radio" name="noise" value={option} checked={noise === option} onChange={() => setNoise(option)} />
+                          <span>{option}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </>
+                ) : summaryText ? (
+                  <div className="checkin__summary-block">
+                    <div className="checkin__summary-header">
+                      <p className="checkin__label">Your check-in</p>
+                      <button type="button" className="text-link" onClick={handleChangeAnswers}>
+                        Change answers
+                      </button>
+                    </div>
+                    <div className="checkin__summary-chips">
+                      {summaryValues.map((value) => (
+                        <span key={value}>{value}</span>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
               </div>
-            </div>
-          )}
-          <div className="checkin__actions">
-            <button type="button" className="text-link" onClick={reset}>
-              Reset
-            </button>
-            <button
-              type="submit"
-              className="primary-button"
-              disabled={!canProceed}
-              data-event={step === 3 ? 'checkin_completed' : undefined}
-            >
-              {step === 3 ? 'Show me my check-in' : 'Next'}
-            </button>
-          </div>
-        </form>
-        <div className="checkin__result">
-          {showResult && result ? (
-            <div className="checkin__card">
-              <div className="checkin__card-header">
-                <p className="eyebrow">Reflection</p>
-                <button type="button" className="text-link" onClick={reset}>
-                  Restart
+            )}
+            {!showResult && (
+              <div className="checkin__actions">
+                <button
+                  type="submit"
+                  className="primary-button"
+                  disabled={!canProceed}
+                  data-event={step === 3 ? 'checkin_completed' : undefined}
+                >
+                  {step === 3 ? 'Show me my check-in' : 'Next'}
                 </button>
               </div>
-              <h3>{result.title}</h3>
-              <p>{result.validation}</p>
-              <p>{result.reframing}</p>
-              <p className="checkin__building">What we’re building: {result.building}</p>
-              <p className="checkin__tip">Try this: {result.nextStep}</p>
-              <button type="button" className="primary-button" data-event="checkin_scroll_to_signup" onClick={scrollToSignup}>
-                Start with clarity
-              </button>
-              <p className="checkin__micro">No spam - just thoughtful updates when clarity matters.</p>
+            )}
+            <div
+              className={`checkin__results${showResult && result ? ' is-visible' : ''}`}
+              ref={resultsRef}
+              aria-live="polite"
+            >
+              {showResult && result ? (
+                <div>
+                  <div className="checkin__card-header">
+                    <p className="eyebrow">Reflection</p>
+                  </div>
+                  <div className="checkin__results-meta">
+                    <span>Based on:</span>
+                    <div className="checkin__chips">
+                      {summaryValues.map((value) => (
+                        <span key={value}>{value}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <h3>{result.title}</h3>
+                  <p>{result.intro}</p>
+                  <p>{result.body}</p>
+                  <div className="checkin__boxes">
+                    <div className="checkin__box checkin__box--building">
+                      <h4>What we’re building</h4>
+                      <p>{result.building}</p>
+                    </div>
+                    <div className="checkin__box checkin__box--tip">
+                      <h4>Try this</h4>
+                      <p>{result.tryThis}</p>
+                    </div>
+                  </div>
+                  <div className="checkin__cta-block">
+                    <button type="button" className="primary-button" data-event="checkin_scroll_to_signup" onClick={scrollToSignup}>
+                      Start with clarity
+                    </button>
+                    <p className="checkin__micro">No spam - just thoughtful updates when clarity matters.</p>
+                  </div>
+                </div>
+              ) : null}
             </div>
-          ) : (
-            <div className="checkin__placeholder">
-              <p>Results will appear here after your check-in.</p>
-            </div>
-          )}
+          </div>
         </div>
-      </div>
+      </form>
     </section>
   );
 }

@@ -17,13 +17,13 @@ A calm, realistic guide for brides who feel pulled in every direction.
 
 If you’ve Googled “how to set boundaries with family during wedding planning”, chances are you’re feeling torn. You want to keep the peace. You don’t want to upset anyone. But you’re also quietly wondering when this stopped feeling like your wedding.
 
-This is one of the most common and emotionally draining parts of wedding planning — and it’s rarely talked about honestly. Let’s slow it down and talk about what actually helps.
+This is one of the most common and emotionally draining parts of wedding planning - and it’s rarely talked about honestly. Let’s slow it down and talk about what actually helps.
 
 ## Why family pressure feels so intense during wedding planning
 
 Weddings sit at the intersection of family history, expectations, tradition, money and emotion. Even the most supportive families can unintentionally create pressure when opinions start flowing.
 
-Comments about guest lists, budgets, traditions, venues or timing often come from a place of care — but intention doesn’t always reduce impact. This is why wedding planning with family can feel more stressful than the logistics themselves.
+Comments about guest lists, budgets, traditions, venues or timing often come from a place of care - but intention doesn’t always reduce impact. This is why wedding planning with family can feel more stressful than the logistics themselves.
 
 ## First, reframe what “setting boundaries” actually means
 
@@ -59,7 +59,7 @@ Using wedding budget and planning realities as boundaries removes the emotional 
 
 ## Expect discomfort (and don’t panic when it happens)
 
-Setting boundaries may feel uncomfortable at first, especially if you’re used to accommodating others. Discomfort does **not** mean you’ve done something wrong, you’re being difficult or the relationship is damaged. It usually means dynamics are shifting — and that’s okay. Most family tension settles once expectations become clear.
+Setting boundaries may feel uncomfortable at first, especially if you’re used to accommodating others. Discomfort does **not** mean you’ve done something wrong, you’re being difficult or the relationship is damaged. It usually means dynamics are shifting - and that’s okay. Most family tension settles once expectations become clear.
 
 ## Stop reopening decisions once they’re made
 

@@ -23,7 +23,7 @@ const workflowStories = [
   },
   {
     title: 'Inspiration Station',
-    copy: 'Curated looks that help you decide what to keep, skip, or adapt — not a dumping ground.',
+    copy: 'Curated looks that help you decide what to keep, skip, or adapt - not a dumping ground.',
     image: askIvyMock
   }
 ];
@@ -66,7 +66,7 @@ const featureHighlights = [
   },
   {
     title: 'Budget Buddy',
-    copy: 'Clarity, trade-offs, and impact tracking — without juggling five spreadsheets.'
+    copy: 'Clarity, trade-offs, and impact tracking - without juggling five spreadsheets.'
   },
   {
     title: 'Guest Nest',
@@ -108,7 +108,7 @@ export default function AppPage() {
           <p className="eyebrow">START HERE</p>
           <h2>Overwhelmed by wedding planning? You’re not behind.</h2>
           <p>
-            Too many tabs, loud family opinions, and timelines that all disagree — it’s a lot. This is the calmer
+            Too many tabs, loud family opinions, and timelines that all disagree - it’s a lot. This is the calmer
             starting point that recentres your plan and your headspace.
           </p>
           <div className="start-here__actions">

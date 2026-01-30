@@ -107,10 +107,10 @@ export default function HomePage() {
           <p className="hero__subheading">A calm wedding planning app that keeps decisions clear, overwhelm low, and support easy.</p>
           <div className="hero__actions">
             <Link href="/#signup" className="primary-button">
-              Yes — I want calmer planning
+              Yes - I want calmer planning
             </Link>
             <Link href="/#services" className="ghost-button">
-              I’m curious — show me how it works
+              I’m curious - show me how it works
             </Link>
             <Link href="/#services" className="hero-secondary-link">
               Discover what’s inside

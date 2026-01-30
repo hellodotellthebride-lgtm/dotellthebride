@@ -70,7 +70,7 @@ export function QuickJoinForm() {
       {feedback ? (
         <p className={`form-status ${status === 'success' ? 'form-status--success' : 'form-status--error'}`}>{feedback}</p>
       ) : null}
-      <p className="form-microcopy">No spam — just thoughtful updates when clarity matters.</p>
+      <p className="form-microcopy">No spam - just thoughtful updates when clarity matters.</p>
     </div>
   );
 }
@@ -152,7 +152,7 @@ export default function BrevoForm() {
           <button type="submit" className="primary-button" disabled={status === 'loading'}>
             {status === 'loading' ? 'Submitting…' : 'Start with clarity'}
           </button>
-          <p className="form-microcopy">No spam — just thoughtful updates when clarity matters.</p>
+          <p className="form-microcopy">No spam - just thoughtful updates when clarity matters.</p>
         </form>
       )}
 

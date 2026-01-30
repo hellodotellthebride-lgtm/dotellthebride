@@ -3,7 +3,7 @@ import FeatureDetail from '@/components/FeatureDetail';
 
 export const metadata: Metadata = {
   title: 'Budget Buddy | Do Tell The Bride',
-  description: 'See your wedding spending clearly with Budget Buddy — calm tracking, gentle prompts, and no messy spreadsheets.'
+  description: 'See your wedding spending clearly with Budget Buddy - calm tracking, gentle prompts, and no messy spreadsheets.'
 };
 
 export default function BudgetBuddyPage() {

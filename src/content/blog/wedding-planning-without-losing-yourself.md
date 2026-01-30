@@ -60,7 +60,7 @@ Not from doing more.
 ## How do you reduce wedding planning stress?
 Reducing wedding planning stress starts with clarity, not perfection.
 It means deciding what actually matters to you, limiting unnecessary decisions, and giving yourself permission to ignore everything else.
-A calmer approach to wedding planning doesn’t mean doing less — it means choosing better.
+A calmer approach to wedding planning doesn’t mean doing less - it means choosing better.
 
 
 ## Protect your energy as deliberately as your budget

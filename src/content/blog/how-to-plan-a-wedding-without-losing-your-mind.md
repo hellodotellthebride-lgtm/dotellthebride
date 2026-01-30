@@ -58,7 +58,7 @@ You don’t need to do everything at once. You need to do the right things at th
 
 ## Step 5: Expect emotions (and plan for them)
 
-No one talks enough about the emotional side of planning a wedding — the guilt, the pressure, the "are we doing this right?" spiral at 11pm. This doesn’t mean you’re ungrateful or dramatic. It means you’re planning something meaningful.
+No one talks enough about the emotional side of planning a wedding - the guilt, the pressure, the "are we doing this right?" spiral at 11pm. This doesn’t mean you’re ungrateful or dramatic. It means you’re planning something meaningful.
 
 The couples who cope best:
 
@@ -72,7 +72,7 @@ Calm isn’t something you "push through to later". It’s part of the plan.
 
 Wedding planning doesn’t need to feel chaotic to be exciting. With the right structure, decisions become easier, progress feels visible, stress stays manageable and the day feels more like yours.
 
-At Do Tell The Bride, we’re building tools that support clarity, not pressure. One place for your guests, budget, inspiration, and planning timeline — designed to work with real life, not against it. If you’re planning a wedding and want a calmer way to do it, you’re exactly who we’re here for.
+At Do Tell The Bride, we’re building tools that support clarity, not pressure. One place for your guests, budget, inspiration, and planning timeline - designed to work with real life, not against it. If you’re planning a wedding and want a calmer way to do it, you’re exactly who we’re here for.
 
 ## Wedding planning FAQs
 

@@ -21,7 +21,7 @@ But because modern wedding planning quietly creates pressure in places no one ta
 
 ### 1. Too many decisions, all at once
 
-One of the biggest causes of wedding planning stress is decision overload. You’re suddenly asked to decide who gets invited, how much to spend, what matters most, what can be skipped, whose opinion counts — and most of these decisions affect each other.
+One of the biggest causes of wedding planning stress is decision overload. You’re suddenly asked to decide who gets invited, how much to spend, what matters most, what can be skipped, whose opinion counts - and most of these decisions affect each other.
 
 This isn’t about being indecisive. It’s about being human. When decisions pile up without structure, your brain stays in a constant state of alert. That’s exhausting.
 
@@ -39,7 +39,7 @@ Many brides feel stressed not because they don’t have a budget, but because th
 
 ### 4. You’re expected to enjoy every moment (while managing stress)
 
-There’s a strange expectation placed on brides to feel grateful, stay excited, enjoy planning, and never complain — all while juggling work, life, relationships, and a growing to-do list.
+There’s a strange expectation placed on brides to feel grateful, stay excited, enjoy planning, and never complain - all while juggling work, life, relationships, and a growing to-do list.
 
 This pressure to “enjoy the process” can actually increase stress, because it leaves no space for frustration or doubt. Feeling overwhelmed doesn’t mean you’re failing at wedding planning. It means you’re experiencing it honestly.
 
@@ -68,4 +68,4 @@ When planning tools and advice ignore the emotional side of weddings, brides end
 
 Reducing bridal stress doesn’t mean doing less. It means planning with intention, clarity, and support.
 
-When decisions are organised, expectations are acknowledged, and planning lives in one calm place, wedding planning stops feeling like something you have to survive — and starts feeling like something you’re actually allowed to experience.
+When decisions are organised, expectations are acknowledged, and planning lives in one calm place, wedding planning stops feeling like something you have to survive - and starts feeling like something you’re actually allowed to experience.

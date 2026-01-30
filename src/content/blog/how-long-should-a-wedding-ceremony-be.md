@@ -1,6 +1,6 @@
 ---
 title: How Long Should a Wedding Ceremony Be? (And Why Shorter Is Usually Better)
-excerpt: Wondering how long your wedding ceremony should be? Here’s the realistic answer — without padding, pressure, or tradition for tradition’s sake.
+excerpt: Wondering how long your wedding ceremony should be? Here’s the realistic answer - without padding, pressure, or tradition for tradition’s sake.
 coverImage: https://images.unsplash.com/photo-1505944357431-27579db47558?q=80
 author: Do Tell The Bride
 date: 2024-01-15
