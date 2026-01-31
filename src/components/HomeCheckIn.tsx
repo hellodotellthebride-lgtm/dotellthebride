@@ -307,25 +307,12 @@ export default function HomeCheckIn() {
     setStep((prev) => (prev - 1) as Step);
   };
 
-  const handleChangeAnswers = () => {
-    setShowResult(false);
-    setHasAutoScrolled(false);
-    cardScrollRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   useEffect(() => {
     if (showResult && !hasAutoScrolled) {
       resultsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       setHasAutoScrolled(true);
     }
   }, [showResult, hasAutoScrolled]);
-
-  const summaryValues = useMemo(() => {
-    if (!timing || !headspace || !noise) return [] as string[];
-    return [timing, headspace, noise];
-  }, [timing, headspace, noise]);
-
-  const summaryText = showResult && summaryValues.length === 3 ? summaryValues.join(' · ') : null;
 
   return (
     <section className="checkin">
@@ -379,35 +366,17 @@ export default function HomeCheckIn() {
               </div>
             </div>
           )}
-            {step === 3 && (
+            {step === 3 && !showResult && (
               <div>
-                {!showResult ? (
-                  <>
-                    <p className="checkin__label">What’s creating the most noise right now?</p>
-                    <div className="checkin__options">
-                      {noiseOptions.map((option) => (
-                        <label key={option} className={noise === option ? 'is-active' : undefined}>
-                          <input type="radio" name="noise" value={option} checked={noise === option} onChange={() => setNoise(option)} />
-                          <span>{option}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </>
-                ) : summaryText ? (
-                  <div className="checkin__summary-block">
-                    <div className="checkin__summary-header">
-                      <p className="checkin__label">Your check-in</p>
-                      <button type="button" className="text-link" onClick={handleChangeAnswers}>
-                        Change answers
-                      </button>
-                    </div>
-                    <div className="checkin__summary-chips">
-                      {summaryValues.map((value) => (
-                        <span key={value}>{value}</span>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
+                <p className="checkin__label">What’s creating the most noise right now?</p>
+                <div className="checkin__options">
+                  {noiseOptions.map((option) => (
+                    <label key={option} className={noise === option ? 'is-active' : undefined}>
+                      <input type="radio" name="noise" value={option} checked={noise === option} onChange={() => setNoise(option)} />
+                      <span>{option}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
             )}
             {!showResult && (
@@ -429,17 +398,6 @@ export default function HomeCheckIn() {
             >
               {showResult && result ? (
                 <div>
-                  <div className="checkin__card-header">
-                    <p className="eyebrow">Reflection</p>
-                  </div>
-                  <div className="checkin__results-meta">
-                    <span>Based on:</span>
-                    <div className="checkin__chips">
-                      {summaryValues.map((value) => (
-                        <span key={value}>{value}</span>
-                      ))}
-                    </div>
-                  </div>
                   <h3>{result.title}</h3>
                   <p>{result.intro}</p>
                   <p>{result.body}</p>
