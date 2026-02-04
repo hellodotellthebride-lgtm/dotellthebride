@@ -3,7 +3,8 @@ title: How to Set Boundaries With Family During Wedding Planning
 excerpt: Struggling with family pressure while planning your wedding? Learn how to set boundaries without guilt, conflict, or losing the joy of your day.
 coverImage: https://images.unsplash.com/photo-1437149639288-c32965270c85?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 author: Do Tell The Bride
-date: 2024-06-07
+date: 2025-10-18
+pill: Guide
 tags:
   - setting boundaries wedding planning
   - family pressure wedding

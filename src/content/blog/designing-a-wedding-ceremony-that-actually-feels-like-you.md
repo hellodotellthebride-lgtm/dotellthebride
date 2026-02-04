@@ -3,7 +3,8 @@ title: Designing a Wedding Ceremony That Actually Feels Like You
 excerpt: Design a personal wedding ceremony without the overwhelm. Calm, modern ideas to create a ceremony that actually feels like you - not a copy-paste script.
 coverImage: https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80
 author: Do Tell The Bride
-date: 2024-02-22
+date: 2025-03-12
+pill: Guide
 tags:
   - personal wedding ceremony ideas
   - meaningful wedding ceremony

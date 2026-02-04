@@ -3,7 +3,8 @@ title: "What to Do After Getting Engaged: A Wedding Planning Checklist by Month"
 excerpt: "Newly engaged and overwhelmed? Follow this calm, month-by-month wedding planning checklist to know exactly what to do next without the panic."
 coverImage: https://images.unsplash.com/photo-1506485338023-6ce5f36692df?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 author: Do Tell The Bride
-date: 2024-06-02
+date: 2026-02-04
+pill: Guide
 tags:
   - planning
   - what to do after engagement

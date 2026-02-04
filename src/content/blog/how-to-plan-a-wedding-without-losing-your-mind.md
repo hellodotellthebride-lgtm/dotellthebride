@@ -3,7 +3,8 @@ title: How to Plan a Wedding Without Losing Your Mind
 excerpt: A calmer planning blueprint for modern couples who want structure, clarity, and a wedding that still feels like them.
 coverImage: https://images.unsplash.com/photo-1651724785457-d7820aa0b38c?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 author: Do Tell The Bride
-date: 2024-06-05
+date: 2025-09-11
+pill: Guide
 tags:
   - planning
   - wedding planning checklist modern

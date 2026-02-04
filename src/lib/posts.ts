@@ -12,6 +12,9 @@ export type PostMeta = {
   coverImage: string;
   author: string;
   date: string;
+  pill: string;
+  sectionTitle?: string;
+  sectionSubtitle?: string;
   tags: string[];
 };
 
@@ -32,6 +35,9 @@ const toPostMeta = (fileName: string): PostMeta => {
     coverImage: data.coverImage ?? '',
     author: data.author ?? 'Do Tell The Bride',
     date: data.date ?? new Date().toISOString(),
+    pill: data.pill ?? 'Guide',
+    sectionTitle: data.sectionTitle ?? '',
+    sectionSubtitle: data.sectionSubtitle ?? '',
     tags: Array.isArray(data.tags) ? data.tags : []
   };
 };
@@ -56,6 +62,9 @@ export const getPostBySlug = (slug: string): Post => {
     coverImage: data.coverImage ?? '',
     author: data.author ?? 'Do Tell The Bride',
     date: data.date ?? new Date().toISOString(),
+    pill: data.pill ?? 'Guide',
+    sectionTitle: data.sectionTitle ?? '',
+    sectionSubtitle: data.sectionSubtitle ?? '',
     tags: Array.isArray(data.tags) ? data.tags : [],
     contentHtml: marked.parse(content) as string
   };

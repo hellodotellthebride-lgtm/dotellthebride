@@ -3,7 +3,8 @@ title: Too Many Wedding Decisions? Why Wedding Planning Feels Overwhelming
 excerpt: Feeling overwhelmed by endless wedding decisions? Discover why decision overload happens in modern wedding planning and how to reduce the mental load.
 coverImage: https://images.unsplash.com/photo-1765614765019-d32aa9c02582?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 author: Do Tell The Bride
-date: 2024-04-20
+date: 2025-11-23
+pill: Guide
 tags:
   - wedding planning decisions
   - decision fatigue wedding planning

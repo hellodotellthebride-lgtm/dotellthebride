@@ -3,7 +3,8 @@ title: How Soon Should You Start Wedding Planning After Engagement?
 excerpt: Wondering how soon to start wedding planning after getting engaged? Here’s a calm, realistic timeline that explains what to do first and what can wait.
 coverImage: https://images.unsplash.com/photo-1579555973297-560c43ca7562?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 author: Do Tell The Bride
-date: 2024-05-15
+date: 2025-08-05
+pill: Guide
 tags:
   - wedding planning after engagement
   - engagement planning timeline

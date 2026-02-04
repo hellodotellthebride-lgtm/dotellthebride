@@ -56,6 +56,12 @@ export default function PostPage({ params }: PostPageProps) {
       <Link href="/journal" className="text-button">
         ← Back to all articles
       </Link>
+      {safePost.sectionTitle || safePost.sectionSubtitle ? (
+        <div className="post__section">
+          {safePost.sectionTitle ? <p className="eyebrow">{safePost.sectionTitle}</p> : null}
+          {safePost.sectionSubtitle ? <p className="post__section-subtitle">{safePost.sectionSubtitle}</p> : null}
+        </div>
+      ) : null}
       <p className="eyebrow">{new Date(safePost.date).toLocaleDateString()}</p>
       <h1>{safePost.title}</h1>
       <p className="post__meta">

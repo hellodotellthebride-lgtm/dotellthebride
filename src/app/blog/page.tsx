@@ -28,7 +28,10 @@ export default function BlogPage() {
                 <Image src={post.coverImage} alt={post.title} width={720} height={420} />
               </div>
             ) : null}
-            <p className="eyebrow">{new Date(post.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+            <div className="post-meta">
+              <p className="eyebrow">{new Date(post.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+              <span className="post-pill">{post.pill || 'Guide'}</span>
+            </div>
             <h3>
               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
             </h3>

@@ -714,6 +714,28 @@ section {
   margin-bottom: 0.5rem;
 }
 
+.post-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.post-meta .eyebrow {
+  margin-bottom: 0;
+}
+
+.post-pill {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 155, 133, 0.15);
+  color: rgba(29, 26, 44, 0.85);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
 .stats .stat-label,
 .post__meta,
 .small-print {
@@ -745,6 +767,44 @@ section {
 
 .post__content p {
   font-size: 1.05rem;
+}
+
+.post__content .post__figure {
+  margin: 1.75rem 0;
+}
+
+.post__content .post__figure img,
+.post__content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+.post__caption {
+  margin-top: 0.6rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.post__credit {
+  margin-top: 0.25rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.post__credit a {
+  color: inherit;
+}
+
+.post__section {
+  margin: 1rem 0 0.75rem;
+}
+
+.post__section-subtitle {
+  margin: 0.15rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.95rem;
 }
 
 .cta {

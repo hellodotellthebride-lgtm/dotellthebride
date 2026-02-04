@@ -3,7 +3,8 @@ title: Why Wedding Planning Feels So Hard (Common Bridal Pain Points Explained)
 excerpt: Wedding planning feels overwhelming for many brides. Discover the most common bridal pain points and why planning feels harder than anyone admits.
 coverImage: https://images.unsplash.com/photo-1517898717281-8e4385a41802?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 author: Do Tell The Bride
-date: 2024-05-02
+date: 2025-04-18
+pill: Guide
 tags:
   - wedding planning pain points
   - overwhelmed bride

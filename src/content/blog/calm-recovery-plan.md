@@ -3,7 +3,8 @@ title: How to Create a Wedding Guest List Without Stress or Guilt
 excerpt: Struggling with your wedding guest list? Learn how to make decisions calmly, set boundaries and stop the guilt before it takes over.
 coverImage: https://images.unsplash.com/photo-1695719416493-95257680511f?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 author: Do Tell The Bride
-date: 2024-04-05
+date: 2025-02-04
+pill: Guide
 tags:
   - how to create a wedding guest list
   - wedding guest list stress

@@ -3,7 +3,8 @@ title: Wedding Planning Without Losing Yourself - A Calm Guide to Reducing Stres
 excerpt: Feeling overwhelmed by wedding planning? This calm, modern guide helps you reduce wedding planning stress and plan your day without losing yourself to pressure or pointless decisions.
 coverImage: https://images.unsplash.com/photo-1542764824-4cdbd6c92dbe?auto=format&fit=crop&w=1400&q=80
 author: Do Tell The Bride
-date: 2024-03-10
+date: 2025-12-29
+pill: Guide
 tags:
   - calm wedding planning
   - stay calm wedding planning
