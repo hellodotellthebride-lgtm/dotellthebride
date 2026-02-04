@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/posts';
 import Image from 'next/image';
 import PhonePreviewRow from '@/components/PhonePreviewRow';
-import BrevoForm, { QuickJoinForm } from '@/components/BrevoForm';
 import HomeCheckIn from '@/components/HomeCheckIn';
 import heroStripOne from '@/assets/App mockup-4.png';
 import heroStripTwo from '@/assets/App mockup-11.png';
@@ -106,20 +105,14 @@ export default function HomePage() {
           <h1>Plan your wedding with clarity.</h1>
           <p className="hero__subheading">A calm wedding planning app that keeps decisions clear, overwhelm low, and support easy.</p>
           <div className="hero__actions">
-            <Link href="/#signup" className="primary-button">
-              Yes - I want calmer planning
+            <Link href="/reset" className="primary-button">
+              Start the 10-minute reset
             </Link>
             <Link href="/#services" className="ghost-button">
               I’m curious - show me how it works
             </Link>
             <Link href="/#services" className="hero-secondary-link">
               Discover what’s inside
-            </Link>
-            <Link href="/overwhelmed-wedding-planning" className="hero-emotion-link">
-              <span>Feeling overwhelmed with wedding planning?</span>
-              <span>
-                This is a calmer place to begin <span aria-hidden="true" className="hero-emotion-link__arrow">→</span>
-              </span>
             </Link>
           </div>
         </div>
@@ -255,8 +248,8 @@ export default function HomePage() {
           <h2>Want clarity before you make your next move?</h2>
           <p>We’ll only reach out when the next step genuinely matters.</p>
         </div>
-        <Link href="/#signup" className="primary-button">
-          Start with clarity
+        <Link href="/reset" className="primary-button">
+          Start the 10-minute reset
         </Link>
       </section>
 
@@ -266,8 +259,14 @@ export default function HomePage() {
           <h2>Start with clarity when you’re ready.</h2>
           <p>We’ll only reach out when the next step genuinely matters.</p>
         </div>
-        <QuickJoinForm />
-        <BrevoForm />
+        <div className="cta__form">
+          <Link href="/reset" className="primary-button">
+            Start the 10-minute reset
+          </Link>
+          <p className="form-microcopy">
+            You’ll enter your email on the next screen to save your reset + get early access.
+          </p>
+        </div>
       </section>
     </div>
   );

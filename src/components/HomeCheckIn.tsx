@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 
 type Step = 1 | 2 | 3;
@@ -237,15 +238,6 @@ const getReflectionContent = (timing: TimingOption, headspace: HeadspaceOption, 
   return { title, intro, body, building, tryThis };
 };
 
-const scrollToSignup = () => {
-  if (typeof document === 'undefined' || typeof window === 'undefined') return;
-  const section = document.getElementById('signup');
-  if (!section) return;
-  const headerOffset = 80;
-  const offsetTop = section.getBoundingClientRect().top + window.scrollY - headerOffset;
-  window.scrollTo({ top: offsetTop, behavior: 'smooth' });
-};
-
 export default function HomeCheckIn() {
   const [step, setStep] = useState<Step>(1);
   const [timing, setTiming] = useState<TimingOption | null>(null);
@@ -412,10 +404,12 @@ export default function HomeCheckIn() {
                     </div>
                   </div>
                   <div className="checkin__cta-block">
-                    <button type="button" className="primary-button" data-event="checkin_scroll_to_signup" onClick={scrollToSignup}>
-                      Start with clarity
-                    </button>
-                    <p className="checkin__micro">No spam - just thoughtful updates when clarity matters.</p>
+                    <Link href="/reset" className="primary-button" data-event="checkin_start_reset">
+                      Start the 10-minute reset
+                    </Link>
+                    <p className="checkin__micro">
+                      You’ll enter your email on the next screen to save your reset + get early access.
+                    </p>
                   </div>
                 </div>
               ) : null}

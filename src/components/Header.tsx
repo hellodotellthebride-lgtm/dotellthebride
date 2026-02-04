@@ -41,8 +41,8 @@ export default function Header() {
               <Link href="/journal" className="ghost-button">
                 Journal
               </Link>
-              <Link href="/#signup" className="primary-button">
-                Start with clarity
+              <Link href="/reset" className="primary-button">
+                Start the 10-minute reset
               </Link>
             </div>
           </>

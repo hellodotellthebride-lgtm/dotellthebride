@@ -79,6 +79,20 @@ export default function PostPage({ params }: PostPageProps) {
         </div>
       ) : null}
       <div className="post__content" dangerouslySetInnerHTML={{ __html: safePost.contentHtml }} />
+      <div className="post-cta">
+        <h2>Want a calmer next step?</h2>
+        <p>
+          If wedding planning is starting to feel noisy, we’ve created a short 10-minute reset to help you pause, clear
+          your head, and come back to things a little steadier.
+        </p>
+        <p>
+          It’s also how you can join the early access waiting list for Do Tell The Bride — a calm, emotionally
+          intelligent wedding planning app we’re building for brides who don’t want to feel overwhelmed.
+        </p>
+        <Link href="/reset" className="ghost-button">
+          Take the 10-minute reset / join early access
+        </Link>
+      </div>
     </article>
   );
 }
