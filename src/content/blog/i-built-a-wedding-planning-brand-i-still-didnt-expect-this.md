@@ -3,7 +3,7 @@ title: I Built a Wedding Planning Brand. I Still Didn’t Expect This
 excerpt: A personal reflection from the middle of wedding planning — on exhaustion, identity shifts, and the mental load nobody really warns you about.
 coverImage: https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 author: Do Tell The Bride
-date: 2026-02-04
+date: 2026-01-28
 pill: Bride to Be Confessions
 sectionTitle: Bride to Be Confessions
 sectionSubtitle: Real thoughts from the middle of wedding planning
