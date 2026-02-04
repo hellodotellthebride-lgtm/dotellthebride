@@ -20,9 +20,9 @@ It came around quick, as wedding events do.
 This time I brought my mother as she wasn’t with me when I picked the dress.
 
 <figure style="margin:28px 0;">
-  <img src="https://source.unsplash.com/n83UOvQbbcI/1600x1000" alt="Minimal boutique interior with clothing and soft light" style="width:100%;height:auto;border-radius:16px;display:block;" />
+  <img src="https://images.unsplash.com/photo-1768758533474-5cd148638a98?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1600" alt="Clothing store interior with racks and soft light" style="width:100%;height:auto;border-radius:16px;display:block;" />
   <figcaption style="font-size:0.9rem;color:#666;margin-top:8px;">Not every moment feels like TV.</figcaption>
-  <div style="font-size:0.85rem;color:#888;margin-top:4px;">Photo: <a href="https://unsplash.com/photos/n83UOvQbbcI">Tan Tony</a> / Unsplash</div>
+  <div style="font-size:0.85rem;color:#888;margin-top:4px;">Photo: <a href="https://unsplash.com/photos/clothing-store-interior-with-racks-of-apparel-a-_PeeYVfQk">Luca Brandt</a> / Unsplash</div>
 </figure>
 
 The moment I didn’t expect
@@ -66,9 +66,9 @@ There is literally so much to plan for a wedding that a job exists to assist wit
 So please let’s give ourselves a break – and realise that we are trying to fit a full time job with absolutely no experience into our normal life.
 
 <figure style="margin:28px 0;">
-  <img src="https://source.unsplash.com/QfQW294I8sQ/1600x1000" alt="Notebook and pen on a desk in soft morning light" style="width:100%;height:auto;border-radius:16px;display:block;" />
+  <img src="https://images.unsplash.com/photo-1753715613651-749ef230482c?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1600" alt="Checking items off a list on a notepad" style="width:100%;height:auto;border-radius:16px;display:block;" />
   <figcaption style="font-size:0.9rem;color:#666;margin-top:8px;">The quiet kind of overwhelm.</figcaption>
-  <div style="font-size:0.85rem;color:#888;margin-top:4px;">Photo: <a href="https://unsplash.com/photos/QfQW294I8sQ">Cht Gsml</a> / Unsplash</div>
+  <div style="font-size:0.85rem;color:#888;margin-top:4px;">Photo: <a href="https://unsplash.com/photos/checking-items-off-a-list-on-a-notepad-VKnmszzzTig">Jakub Żerdzicki</a> / Unsplash</div>
 </figure>
 
 A quiet takeaway
