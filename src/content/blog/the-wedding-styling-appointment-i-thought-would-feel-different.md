@@ -1,7 +1,7 @@
 ---
 title: The Wedding Styling Appointment I Thought Would Feel Different
 excerpt: An honest reflection on wedding expectations, underwhelming moments, and learning to let go of how things are “supposed” to feel.
-coverImage: https://source.unsplash.com/n83UOvQbbcI/1600x1000
+coverImage: https://images.unsplash.com/photo-1768758533474-5cd148638a98?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=1600
 author: Do Tell The Bride
 date: 2026-02-04T12:00:00Z
 pill: Bride to Be Confessions
